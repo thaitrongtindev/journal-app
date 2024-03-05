@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="journal"
+            type="com.example.journalapp.Journal" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        app:cardCornerRadius="10dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:alpha="0.8"
+            android:elevation="10dp"
+            android:gravity="end"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/journal_row_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="start"
+                android:padding="3dp"
+                android:text="@{journal.title}"
+                android:textSize="17sp" />
+
+            <ImageButton
+                android:id="@+id/journal_row_btn_share"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_share" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/journal_row_image_list"
+                android:src="@{journal.imageUrl}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:cropToPadding="true"
+                android:scaleType="fitXY" />
+
+            <TextView
+                android:id="@+id/journal_row_title_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="10dp"
+                android:text="@{journal.title}"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/journal_row_thought_list"
+                android:padding="10dp"
+                android:text="@{journal.thoughts}"
+                android:textSize="18sp"
+                android:paddingTop="15dp"
+                android:paddingStart="10dp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/journal_timestamp_list"
+                android:padding="5dp"
+                android:text="@{journal.timeAdded.toString()}"
+                android:textStyle="italic"/>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
